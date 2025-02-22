@@ -1,0 +1,227 @@
+[
+	
+		{
+			"name": "lasagna",
+			"type": "beef",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "sphagetti",
+			"type": "beef",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "tacos",
+			"type": "beef",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "taco soup",
+			"type": "beef",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "tortilla soup",
+			"type": "chicken",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "potato soup",
+			"type": "chicken",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken noodle soup",
+			"type": "chicken",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chili",
+			"type": "beef",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "frozen pizza",
+			"type": "other",
+			"time": "short",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "stuffed bell peppers",
+			"type": "beef",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken salad",
+			"type": "chicken",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken with veggies",
+			"type": "chicken",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "pork chops",
+			"type": "other",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken with mac",
+			"type": "chicken",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "pulled chicken potatoes",
+			"type": "chicken",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken parm",
+			"type": "chicken",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken nuggets",
+			"type": "chicken",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken fajita bowls",
+			"type": "chicken",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken fried rice",
+			"type": "chicken",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "chicken chili",
+			"type": "chicken",
+			"time": "long",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "burgers",
+			"type": "other",
+			"time": "short",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "hot dogs",
+			"type": "other",
+			"time": "short",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "sandwhiches - ham & provolone",
+			"type": "other",
+			"time": "short",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "sandwhiches - roast beef & provolone",
+			"type": "other",
+			"time": "short",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "tamales",
+			"type": "other",
+			"time": "short",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "meatballs & rice",
+			"type": "other",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "sausage wraps",
+			"type": "other",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "fajita bowls",
+			"type": "other",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "steak",
+			"type": "other",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "suasage & rice",
+			"type": "other",
+			"time": "short",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "tortellini",
+			"type": "other",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		},
+		{
+			"name": "quesadillas",
+			"type": "other",
+			"time": "intermediate",
+			"ingredients": [],
+			"sides": []
+		}
+	]
