@@ -43,7 +43,7 @@ const DinnersIn = () => {
     <div style={{ display: 'flex', flexDirection: 'column' }}>{(dinners || []).map(dinner => {
       const { name, type, time, ingredients, sides, images } = dinner;
       return (
-        <div key="name" style={{ display: 'flex', flexDirection: 'column', marginTop: '1rem' }}>
+        <div key={name} style={{ display: 'flex', flexDirection: 'column', marginTop: '1rem' }}>
           {name}
           <ul>
             <li>type: {type}</li>
