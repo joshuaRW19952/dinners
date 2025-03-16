@@ -1,60 +1,80 @@
 import { useState, useEffect } from 'react';
 import { DINNERS_IN } from './constants';
+import { getDinnerOfType } from './utils';
 import './index.css';
 
 const SPREADSHEET_ID = '1w81GOhHKQ9xAQTGobgl5Mojb4RD_0RCA140dUmhycOw';
 const API_KEY = 'AIzaSyCSiVi1WHmCLtAcbv_FzXMxwwOPaLmSWWc';
 const API_CALL_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/A:ZZZ?key=${API_KEY}`;
 
-/**
- * Make an API to google sheets and call passed function with the result
- * @param {function} setDinners callback to set dinners into state
- */
-const getDinnersFromSpreadsheet = async setDinners => {
-  try {
-    const { values } = await fetch(API_CALL_URL).then(response => response.json());
-    const columns = values[0];
-    const rows = values.slice(1);
-
-    const dinners = rows.map(row => {
-      return columns.reduce((acc, columnName, columnNum) => {
-        acc[columnName] = row[columnNum];
-        return acc;
-      }, {});
-    });
-
-    setDinners(dinners);
-  } catch (err) {
-    // fallback to static data
-    console.error(err);
-    return DINNERS_IN;
-  }
-};
-
 const DinnersIn = () => {
-  const [dinners, setDinners] = useState();
+  const [data, setData] = useState();
+  const [dinners, setDinners] = useState({ chicken: null, beef: null, other: null, wildcard: null });
+  const [exclusions, setExclusions] = useState([]);
 
-  // load data from external source
+  const getRandomDinnerOfType = type => {
+    const dinner = getDinnerOfType(type === 'wildcard' ? null : type, exclusions, data);
+    setDinners({ ...dinners, [type]: dinner.name });    
+  };
+
+  const exclude = (dinner, type) => {
+    setExclusions([...exclusions, dinner]);
+    getRandomDinnerOfType(type);
+  };
+  
   useEffect(() => {
-    getDinnersFromSpreadsheet(setDinners);
+    const fetchData = async () => {
+      try {
+        const { values } = await fetch(API_CALL_URL).then(response => response.json());
+        const columns = values[0];
+        const rows = values.slice(1);
+    
+        const dinners = rows.map(row => {
+          return columns.reduce((acc, columnName, columnNum) => {
+            acc[columnName] = row[columnNum];
+            return acc;
+          }, {});
+        });
+    
+        setData(dinners);
+      } catch (err) {
+        console.error(err);
+        setData(DINNERS_IN);
+      }
+    };
+    fetchData();
   }, []);
 
+  const renderDinners = () => Object.keys(dinners).map(type => {
+    const dinner = dinners[type];
+    return (
+      <div key={type}>
+        <span>{type}: {dinners[type]}</span>
+        <button type="button" onClick={() => getRandomDinnerOfType(type)}>random</button>
+        <button type="button" onClick={() => exclude(dinner, type)}>exclude</button>
+      </div>
+    );
+  });
+
+  const removeExclusion = dinner => {
+    setExclusions(exclusions.filter(el => el !== dinner));
+  };
+
+  const renderExclusions = () => exclusions.map(dinner => 
+    <div key={dinner}>
+      <span>{dinner}</span>
+      <button type="button" onClick={() => removeExclusion(dinner)}>remove</button>
+    </div>
+  );
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>{(dinners || []).map(dinner => {
-      const { name, type, time, ingredients, sides, images } = dinner;
-      return (
-        <div key={name} style={{ display: 'flex', flexDirection: 'column', marginTop: '1rem' }}>
-          {name}
-          <ul>
-            <li>type: {type}</li>
-            <li>time: {time}</li>
-            <li>ingredients: {ingredients}</li>
-            <li>sides: {sides}</li>
-            <li>images: {images}</li>
-          </ul>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {renderDinners()}
+        <div>
+          <span>Exclusions below:</span>
+          {renderExclusions()}
         </div>
-      );
-    })}</div>
+    </div>
   );
 };
 
