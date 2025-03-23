@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
+}
+
+:root {
+  --c-academyBlue: #1928a0;
+  --c-academyGray: #333333;
+  --c-academyWhite: #ffffff;
+
+  --c-legacyDarkBlue: #003366;
+  --c-darkBlue: #004080;
+
+  --c-brightBlue: #0066cc;
+  --c-brightBlueHover: #004080;
+  --c-overlay: #33333380;
+
+  --c-midBlue: #0749aa;
+  --c-lightBlue: #f2f8fd;
+
+  --c-red: #d60000;
+  --c-mustard: #d99700;
+  --c-yellow: #f2cf56;
+
+  --c-green: #167d16;
+  --c-lightGreen: #1eaa1e;
+
+  --c-notAvail: #f2f2f2;
+
+  --c-gray05: #f8f8f8;
+  --c-gray20: #e8e8e8;
+  --c-gray30: #cccccc;
+  --c-gray50: #6a6a6a;
+  --c-gray70: #585858;
+  --c-gray80: #4c4c4c;
+
+  
+  --c-info-1000: #0749aa;
+  --c-info-800: #396dbb;
+  --c-info-600: #6a92cc;
+  --c-info-400: #9cb6dd;
+  --c-info-200: #cddbee;
+  --c-info-100: #e6edf7;
+
+  --c-err-1000: #d60000;
+  --c-err-800: #de3333;
+  --c-err-600: #e66666;
+  --c-err-400: #ef9999;
+  --c-err-200: #f7cccc;
+  --c-err-100: #fbe6e6;
+
+  --c-warn-1000: #d99700;
+  --c-warn-800: #cda04d;
+  --c-warn-600: #d9b97d;
+  --c-warn-400: #e6d1a7;
+  --c-warn-200: #f2e7d3;
+  --c-warn-100: #f8f3e9;
+
+  --c-success-1000: #167d16;
+  --c-success-800: #459945;
+  --c-success-600: #74b374;
+  --c-success-400: #a2cca2;
+  --c-success-200: #d1e6d1;
+  --c-success-100: #e8f2e8;
+
+  --gradient-academyBlue: linear-gradient(225.61deg, var(--c-brightBlue) -2.36%, var(--c-academyBlue) 90.95%);
+  --gradient-brightBlue: linear-gradient(225.61deg, var(--c-lightBlue) -2.36%, var(--c-brightBlue) 90.95%);
+  --gradient-white: linear-gradient(225.61deg, var(--c-lightBlue) -2.36%, var(--c-academyWhite) 90.95%);
+  --gradient-red: linear-gradient(225.61deg, var(--c-mustard) -2.36%, var(--c-red) 90.95%);
+  --gradient-mustard: linear-gradient(225.61deg, var(--c-yellow) -2.36%, var(--c-mustard) 90.95%);
+  --gradient-green: linear-gradient(225.61deg, var(--c-lightGreen) -2.36%, var(--c-green) 90.95%);
+  --gradient-lightGreen: linear-gradient(225.61deg, var(--c-yellow) -2.36%, var(--c-lightGreen) 90.95%);
+  --gradient-loader: linear-gradient(90deg, #E8E8E8 0%, #FFF 100%);
+}

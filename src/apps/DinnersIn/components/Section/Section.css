@@ -1,0 +1,69 @@
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-controller {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--c-lightBlue);
+  min-height: 50px;
+  padding: 1rem;
+  border-bottom: 1px solid var(--c-academyGray);
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.section.open .section-controller > :nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.section-content-wrapper {
+  border-bottom: 1px solid var(--c-academyGray);
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 2rem 1rem;
+  gap: 1rem;
+}
+
+.section-content-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid var(--c-academyGray);
+  padding-top: 1rem;
+}
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.selection-details {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+}
+
+.selection-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.selection-controls button {
+  flex: 1; 
+  padding: 0.5rem;
+  background: var(--c-brightBlue);
+  border-radius: 4px;
+  border: 1px solid var(--c-academyBlue);
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+}
