@@ -35,6 +35,16 @@ const DinnersIn = () => {
     fetchData();
   }, []);
 
+  const getWildCardDinners = () => {
+    const selectedDinners = Object.values(selections).map(dinner => dinner?.name).filter(el => el);
+    return data.filter(dinner => !selectedDinners.includes(dinner?.name));
+  };
+
+  const getWildCardExclusions = () => {
+    const selectedDinners = Object.values(selections).map(dinner => dinner?.name).filter(el => el);
+    return exclusions.filter(exclusion => !selectedDinners.includes(exclusion));
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         {Object.keys(selections).map(type => {
@@ -44,8 +54,9 @@ const DinnersIn = () => {
             <Section 
               key={type} type={type} 
               setSelection={setSelection} 
-              selection={selection} dinners={type === 'wildcard' ? data : data.filter(dinner => dinner.type === type)}
-              exclusions={exclusions}
+              selection={selection}
+              dinners={type === 'wildcard' ? getWildCardDinners() : data.filter(dinner => dinner.type === type)}
+              exclusions={type === 'wildcard' ? getWildCardExclusions() : exclusions}
               setExclusions={setExclusions}
             />
           );

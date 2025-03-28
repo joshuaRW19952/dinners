@@ -22,13 +22,29 @@ export const Section = props => {
     }
   };
 
+  const { excludedDinners, includedDinners } = dinners.reduce((acc, curr) => {
+    if (exclusions.includes(curr.name)) return { ...acc, excludedDinners: [...acc.excludedDinners, curr] };
+    return { ...acc, includedDinners: [...acc.includedDinners, curr] };
+  }, { excludedDinners: [], includedDinners: [] });
+
+  const renderDinners = (dinnersToRender, excluded) => dinnersToRender.map(dinner => {
+    const { name } = dinner;
+    return  <Item key={name} name={name} onClick={handleItemInclusion} isExcluded={excluded} isSelection={name === selection?.name} />;
+  });
+
   const content = (
     <div className="section-content-wrapper">
       <div className="section-content">
-        {dinners.map(dinner => {
-          const { name } = dinner;
-          return  <Item key={name} name={name} onClick={handleItemInclusion} isExcluded={exclusions.includes(name)} />;
-        })}
+        <div className="subsection">
+          <span className="subsection-title">included</span>
+          <div className="included-dinners">{renderDinners(includedDinners)}</div>
+        </div>
+        {excludedDinners.length > 0 ? (
+          <div className="subsection">
+            <span className="subsection-title">excluded</span>
+            <div className="excludedDinners">{renderDinners(excludedDinners, true)}</div>
+          </div>
+        ) : null}
         <div className="section-content-bottom">
           <div className="selection">
             <span>{selection?.name}</span>
