@@ -36,7 +36,7 @@ const DinnersIn = () => {
   }, []);
 
   const getWildCardDinners = () => {
-    const selectedDinners = Object.values(selections).map(dinner => dinner?.name).filter(el => el);
+    const selectedDinners = Object.values(selections).map(dinner => dinner?.name).filter(el => el && el !== selections.wildcard?.name);
     return data.filter(dinner => !selectedDinners.includes(dinner?.name));
   };
 
@@ -50,6 +50,11 @@ const DinnersIn = () => {
         {Object.keys(selections).map(type => {
           const selection = selections[type];
           const setSelection = newSelection => setSelections({ ...selections, [type]: newSelection });
+
+          if (type === 'wildcard' && (!selections.chicken || !selections.beef || !selections.other )) {
+            return null;
+          }
+          
           return (
             <Section 
               key={type} type={type} 

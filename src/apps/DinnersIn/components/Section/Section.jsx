@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChevronRightLg } from '../icons/ChevronRightLg';
 import { Item } from '../Item/Item';
 import { getRandomElement } from '../../utils';
@@ -13,6 +14,10 @@ export const Section = props => {
     const dinner = getRandomElement(dinners.filter(dinner => dinner.name !== selection?.name && !exclusions.includes(dinner.name)));
     setSelection(dinner || selection);
   };
+
+  useEffect(() => {
+    exclusions.includes(selection?.name) && onRandom();
+  }, [exclusions]);
 
   const handleItemInclusion = (exclude, name) => {
     if (exclude && !exclusions.includes(name)) {
@@ -31,6 +36,8 @@ export const Section = props => {
     const { name } = dinner;
     return  <Item key={name} name={name} onClick={handleItemInclusion} isExcluded={excluded} isSelection={name === selection?.name} />;
   });
+
+
 
   const content = (
     <div className="section-content-wrapper">
@@ -65,7 +72,6 @@ export const Section = props => {
           </div>
           <div className="selection-controls">
             <button type="button" onClick={onRandom}>random</button>
-            <button type="button" onClick={() => setExclusions([])}>clear exclusions</button>
           </div>
         </div>
       </div>
